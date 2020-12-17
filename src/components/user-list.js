@@ -31,6 +31,9 @@ class UserList extends Component {
     }
 
     componentDidMount() {
+        if(!localStorage.id) {
+            window.location.href = '/login';
+        }
         this.onUserList();
     }
 

@@ -73,6 +73,8 @@ export const logOut = () => dispatch => {
         type: USER_REGISTRATION,
         payload: 'The logout has succeed.',
     });
+    window.location.href = '/login';
+
     localStorage.setItem("id", '');
     localStorage.setItem("name", '');
     localStorage.setItem("email", '');

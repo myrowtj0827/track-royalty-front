@@ -24,6 +24,9 @@ class UserReports extends Component {
     }
 
     componentDidMount() {
+        if(!localStorage.id) {
+            window.location.href = '/login';
+        }
         this.onPageClick(1);
     }
 
