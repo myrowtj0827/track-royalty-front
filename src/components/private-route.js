@@ -4,13 +4,11 @@ import {connect} from "react-redux";
 
 const PrivateRoute = ({component: Component, auth, ...rest}) => {
     const loggedIn = localStorage.getItem('email');
-    console.log("loggedIn = ", loggedIn)
-
     return (
         <Route
             {...rest}
             render={props =>
-                loggedIn !== '' ? (
+                (loggedIn !== '' && loggedIn !== undefined) ? (
                     <Component {...props} />
                 ) : (
                     <Redirect to="/login"/>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6dfc4be5-ef3c-4857-af47-20e3a0eb92a1" name="Default Changelist" comment="" />
+    <list default="true" id="6dfc4be5-ef3c-4857-af47-20e3a0eb92a1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/private-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/private-route.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XKHIpS1QClINNBfuxh3pMCwHvz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -137,7 +141,8 @@
       <workItem from="1607541047595" duration="37818000" />
       <workItem from="1607728725349" duration="11000" />
       <workItem from="1607729308078" duration="129279000" />
-      <workItem from="1608081438325" duration="61233000" />
+      <workItem from="1608081438325" duration="62068000" />
+      <workItem from="1608226811012" duration="1335000" />
     </task>
     <servers />
   </component>
