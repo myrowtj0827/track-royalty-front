@@ -30,7 +30,7 @@ class Login extends React.Component {
             this.tmr = setTimeout(function () {
                 reset();
                 this.tmr = null;
-                window.location.href = '/dashboard';
+                window.location.href = '/';
             }, 1000);
 
             this.setState({
