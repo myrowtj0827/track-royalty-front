@@ -196,12 +196,16 @@ class AddAlbum extends Component {
     onCount = (e) => {
         this.setState({
             pagination: e.target.value,
+            allChecked: false,
+            new_checked: [],
         })
     };
 
     onLanguage = (e) => {
         this.setState({
             language: e.target.value,
+            allChecked: false,
+            new_checked: [],
         });
     };
     onPageClick = (item) => {
@@ -332,9 +336,6 @@ class AddAlbum extends Component {
         } else{
             temp.splice(temp.indexOf(e.target.id), 1);
         }
-
-        console.log("temp = ", temp);
-
         this.setState({new_checked: temp});
     };
     onActionClick = () => {
@@ -351,9 +352,7 @@ class AddAlbum extends Component {
         });
     };
 
-
     onAlbumId = (e) => {
-        console.log("###### ", e.target.value);
         this.setState({
             [e.target.id]: e.target.value || '',
         })
@@ -375,8 +374,6 @@ class AddAlbum extends Component {
                 new_checked: [],
                 allChecked: false,
             });
-
-           console.log("Success =  =======")
         }
     };
     /**

@@ -29,11 +29,12 @@ class Register extends Component {
             const {
                 reset
             } = this.props;
-            clearTimeout(this.tmr);
+
             this.tmr = setTimeout(function () {
                 reset();
                 this.tmr = null;
                 window.location.href = '/login';
+                clearTimeout(this.tmr);
             }, 2000);
 
             this.setState({

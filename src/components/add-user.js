@@ -211,6 +211,9 @@ class AddUser extends Component {
         return (
             <>
                 <ToastContainer />
+                <div className="spinning-curtain" style={{display: this.props.spinning ? "flex" : "none"}}>
+                    <div className="lds-dual-ring"/>
+                </div>
                 <div className="col-darkBlue txt-30 txt-bold pb-20 pl-40">
                     Add User
                 </div>

@@ -42,6 +42,9 @@ class Header extends Component {
         }
     };
     componentDidMount() {
+        if (!localStorage.id) {
+            window.location.href = '/login';
+        }
         window.addEventListener('scroll', this.handleScroll, true);
     }
 
@@ -59,7 +62,7 @@ class Header extends Component {
             this.tmr = setTimeout(function () {
                 reset();
                 this.tmr = null;
-                window.location.href = Config.FRONT_URL + '/login';
+                window.location.href = '/login';
             }, 1500);
         }
     }

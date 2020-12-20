@@ -26,7 +26,7 @@ class ForgotPassword extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.msg_registration && prevProps.msg_registration !== this.props.msg_registration) {
-            window.location.href = Config.FRONT_URL + '/reset-password/' + this.props.msg_registration;
+            window.location.href = '/reset-password/' + this.props.msg_registration;
         }
         if(this.props.msg_user_error && prevProps.msg_user_error !== this.props.msg_user_error) {
             toast(this.props.msg_user_error);

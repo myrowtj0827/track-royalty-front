@@ -85,13 +85,6 @@ class PublisherTracks extends Component {
         }
     };
 
-    onBack = () => {
-        this.setState({
-            flag_edit: '',
-        });
-        this.props.history.push(this.state.user_id && '/publisher/albums/' + this.state.user_id);
-    };
-
     onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value || 0,
@@ -123,25 +116,25 @@ class PublisherTracks extends Component {
         });
 
 
-        /**
-         *
-         *
-         *
-         * extra
-         *
-         */
-        const {
-            addPaymentInfo
-        } = this.props;
-        if(addPaymentInfo) {
-            const data = {
-                album_id: this.state.album_id,
-                track_name: "Hadlukas Haneiros Rabeinu Shlita",
-                played_country: "US",
-                played_ip_address: '176.122.2.32',
-            };
-            addPaymentInfo(data);
-        }
+        // /**
+        //  *
+        //  *
+        //  *
+        //  * extra
+        //  *
+        //  */
+        // const {
+        //     addPaymentInfo
+        // } = this.props;
+        // if(addPaymentInfo) {
+        //     const data = {
+        //         album_id: this.state.album_id,
+        //         track_name: "Hadlukas Haneiros Rabeinu Shlita",
+        //         played_country: "US",
+        //         played_ip_address: '176.122.2.32',
+        //     };
+        //     addPaymentInfo(data);
+        // }
 
     };
 
