@@ -8,7 +8,6 @@ import {
     getAlbumListFromSite,
     addAlbumFromSite,
     getAlbumByIdFromSite,
-
     addTrackFromSite,
 } from "../redux/actions/users/get-data-site";
 import DeleteAlbum from "./modal-delete-album";
@@ -17,7 +16,6 @@ class AddAlbum extends Component {
     constructor(props) {
         super(props);
         this.tmr = null;
-
         this.state = {
             album_list: [],
             new_checked: [],
@@ -49,14 +47,12 @@ class AddAlbum extends Component {
         this.onInitial();
         this.getDataFromSite();
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.get_album_list && this.props.get_album_list !== prevProps.get_album_list) {
             this.setState({
                 album_list: this.props.get_album_list,
             });
         }
-
         if(this.props.msg_album_list_error && this.props.msg_album_list_error !== prevProps.msg_album_list_error) {
             toast(this.props.msg_album_list_error);
             const {
@@ -115,7 +111,6 @@ class AddAlbum extends Component {
                         return null;
                     });
                 }
-
                 this.setState({
                     new_checked: temp,
                 })
@@ -292,7 +287,6 @@ class AddAlbum extends Component {
                         }
                     }
                 }
-
                 const data = {
                     role_id: localStorage.id,
                     album: this.state.get_album,
@@ -303,7 +297,6 @@ class AddAlbum extends Component {
                 addTrackFromSite(data);
             }
         }
-
         this.setState({
             new_checked: [],
             allChecked: false,
@@ -441,7 +434,6 @@ class AddAlbum extends Component {
                                     </>
                                 )
                             }
-
                             <div className="justify-center col-buttonAndLink ml-40">Language</div>
                             <div>
                                 <select
@@ -454,7 +446,6 @@ class AddAlbum extends Component {
                                     <option key="2" value="he">Hebrew</option>
                                 </select>
                             </div>
-
                             <div className="justify-center col-buttonAndLink ml-40" style={{marginRight: 10}}>Album ID</div>
                             <div className="mr-id-10">
                                 <input
@@ -507,7 +498,6 @@ class AddAlbum extends Component {
                                             <th>Date</th>
                                             <th>Image</th>
                                             <th>State</th>
-
                                             <th
                                                 className="mouse-cursor"
                                             >
@@ -642,7 +632,6 @@ class AddAlbum extends Component {
                                         </tbody>
                                     </table>
                                 </div>
-
                                 <div className="help-center-align">
                                     <div className="product-btn justify-center" onClick={() => this.onPageClick(1)}>
                                         <svg width="11" height="15" viewBox="0 0 11 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -663,7 +652,6 @@ class AddAlbum extends Component {
                                             )
                                         })
                                     }
-
                                     <div className="product-btn justify-center" onClick={() => this.onPageClick(this.state.total_page)}>
                                         <svg width="11" height="15" viewBox="0 0 11 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1.39506 14.6383C1.57978 14.6383 1.76643 14.5779 1.92229 14.457L10.077 8.02084C10.2752 7.86414 10.3906 7.62814 10.3906 7.37704C10.3906 7.12782 10.2752 6.88993 10.077 6.73512L1.95692 0.332906C1.59518 0.047818 1.06603 0.104458 0.775474 0.459402C0.484922 0.814346 0.542647 1.33355 0.904394 1.61863L8.2086 7.37704L0.867834 13.1713C0.506087 13.4564 0.448362 13.9756 0.738914 14.3305C0.906319 14.5326 1.14877 14.6383 1.39506 14.6383Z" fill="black" fillOpacity="0.65"/>
@@ -729,7 +717,6 @@ class AddAlbum extends Component {
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div>
                                                 <div className="pt-30 pb-10 justify-center col-paragraphBg txt-20">Tracks</div>
                                             </div>
@@ -830,13 +817,9 @@ class AddAlbum extends Component {
                                 }
 
                             </>
-
                     }
-
-
                 </div>
-
-            {/*  Modal  */}
+                {/*  Modal  */}
                 {
                     !this.state.flag_input ?
                         <DeleteAlbum
@@ -867,12 +850,10 @@ const mapStateToProps = (state) => {
         get_album_list: state.users.get_album_list,
         msg_album_list_error: state.users.msg_album_list_error,
         msg_create_album: state.users.msg_create_album,
-
         get_album_byId: state.users.get_album_byId,
         msg_album_byId: state.users.msg_album_byId,
     }
 };
-
 export default connect(
     mapStateToProps,
     {
@@ -880,7 +861,6 @@ export default connect(
         getAlbumListFromSite,
         addAlbumFromSite,
         getAlbumByIdFromSite,
-
         addTrackFromSite,
     }
 )(AddAlbum);

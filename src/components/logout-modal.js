@@ -3,24 +3,22 @@ import '../assets/css/dashboard.css';
 import {connect} from "react-redux";
 import {
     reset,
-    deleteUser,
-} from "../redux/actions/users/publisher";
-import {toast} from "react-toastify";
-class DeleteUser extends Component {
+    logOut,
+} from "../redux/actions/users/registration";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+class LogOut extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.msg_user_delete && prevProps.msg_user_delete !== this.props.msg_user_delete) {
-            toast(this.props.msg_user_delete);
+        if(this.props.msg_registration && prevProps.msg_registration !== this.props.msg_registration) {
+            toast(this.props.msg_registration);
             const {
-                reset,
-                handleClose,
+                reset
             } = this.props;
             clearTimeout(this.tmr);
             this.tmr = setTimeout(function () {
                 reset();
                 this.tmr = null;
-
-                handleClose();
-                window.location.href = "/user-list";
+                window.location.href = '/login';
             }, 2000);
         }
     }
@@ -28,29 +26,25 @@ class DeleteUser extends Component {
         const {
             handleClose
         } = this.props;
-
         handleClose();
     };
-    onDelete = (_id) => {
-        const data = {
-            role_id: localStorage.id,
-            id: _id,
-        };
+    logOut = () => {
         const {
-            deleteUser
+            logOut
         } = this.props;
-        deleteUser(data);
+        logOut();
     };
     render() {
         const showHideClassName = this.props.show ? "modal-b display-modal-block" : "modal-b display-modal-none";
         return (
             <div className={showHideClassName}>
+                <ToastContainer />
                 <section className="modal-article">
-                    <div className="create-modal-header txt-20 justify-left col-white">Delete User</div>
-                    <div className="pt-30 pb-30 txt-18 justify-center">Do you want to delete this user really?</div>
+                    <div className="create-modal-header txt-20 justify-left col-white">Log Out</div>
+                    <div className="pt-30 pb-30 txt-18 justify-center">Do you want to log out really?</div>
                     <div className="flex-grid2 modal-grid2-gaps modal-p">
                         <div className="btn-common mouse-cursor justify-center col-white" onClick={this.Cancel}>Cancel</div>
-                        <div className="btn-common mouse-cursor justify-center col-white" onClick={() => this.onDelete(this.props.id)}>Delete</div>
+                        <div className="btn-common mouse-cursor justify-center col-white" onClick={this.logOut}>Ok</div>
                     </div>
                 </section>
             </div>
@@ -59,14 +53,14 @@ class DeleteUser extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        msg_user_delete: state.users.msg_user_delete,
+        msg_registration: state.users.msg_registration,
     }
 };
 export default connect(
     mapStateToProps,
     {
         reset,
-        deleteUser,
+        logOut,
     }
-)(DeleteUser);
+)(LogOut);
 

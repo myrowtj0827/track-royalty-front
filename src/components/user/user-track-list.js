@@ -22,18 +22,15 @@ class UserTrackList extends React.Component {
             detail_item: '',
         };
     }
-
     componentDidMount() {
         this.getInitialTrackList();
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.get_track_list && this.props.get_track_list !== prevProps.get_track_list) {
             this.setState({
                 listById: this.props.get_track_list,
             });
         }
-
         if (this.props.msg_error_tracks && this.props.msg_error_tracks !== prevProps.msg_error_tracks) {
             toast(this.props.msg_error_tracks);
             const {
@@ -46,7 +43,6 @@ class UserTrackList extends React.Component {
             }, 3000);
         }
     }
-
     getInitialTrackList = () => {
         const {
             getTrackListById
@@ -60,7 +56,6 @@ class UserTrackList extends React.Component {
             getTrackListById(data);
         }
     };
-
     onShowTableContents = () => {
         this.setState({
             table_show: !this.state.table_show,
@@ -76,9 +71,6 @@ class UserTrackList extends React.Component {
     exportTableToCSV = (filename) => {
         let csv = [];
         let rows = document.querySelectorAll("table tr");
-
-        console.log(rows);
-
         for (let i = 0; i < rows.length; i++) {
             let row = [], cols = rows[i].querySelectorAll("td, th");
 
@@ -87,32 +79,24 @@ class UserTrackList extends React.Component {
 
             csv.push(row.join(","));
         }
-
         // Download CSV file
         this.downloadCSV(csv.join("\n"), filename);
     };
     downloadCSV = (csv, filename) => {
         let csvFile;
         let downloadLink;
-
         // CSV file
         csvFile = new Blob([csv], {type: "text/csv"});
-
         // Download link
         downloadLink = document.createElement("a");
-
         // File name
         downloadLink.download = filename;
-
         // Create a link to the file
         downloadLink.href = window.URL.createObjectURL(csvFile);
-
         // Hide download link
         downloadLink.style.display = "none";
-
         // Add the link to DOM
         document.body.appendChild(downloadLink);
-
         // Click download link
         downloadLink.click();
     };
@@ -146,7 +130,6 @@ class UserTrackList extends React.Component {
                                         onClick={() => window.location = this.state.listById.album.path}
                                         alt="" />
                                 </div>
-
                                 <div className="album-grid-mt justify-center col-darkBlue">
                                     <div>
                                         <div className="justify-center">
@@ -164,7 +147,7 @@ class UserTrackList extends React.Component {
                                             {this.state.listById.album.name}
                                         </div>
                                         <div className="pt-10 justify-center txt-bold txt-20">
-                                            Articles:
+                                            Artists:
                                         </div>
                                         <table className="tList">
                                             <thead>
@@ -261,7 +244,6 @@ class UserTrackList extends React.Component {
                                     Detailed view of track "{this.state.detail_item.name}"
                                 </div>
                             </div>
-
                             <div className="mt-30 justify-center col-darkBlue txt-bold txt-20">Track History</div>
                             <div className="table-p">
                                 <table className="tList">

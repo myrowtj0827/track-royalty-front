@@ -6,7 +6,6 @@ import {
     updatePublisher,
     getPublisherById,
 } from "../../redux/actions/users/publisher";
-
 import CountriesList from "../../components/country-list";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,7 +37,6 @@ class UserSettings extends Component {
         }
         this.onInitial();
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.msg_create_publisher && prevProps.msg_create_publisher !== this.props.msg_create_publisher) {
             toast(this.props.msg_create_publisher);
@@ -52,7 +50,6 @@ class UserSettings extends Component {
             }, 2000);
             this.onInitial();
         }
-
         if(this.props.msg_publisher_error && prevProps.msg_publisher_error !== this.props.msg_publisher_error) {
             console.log(this.props.msg_publisher_error);
             let msg = this.props.msg_publisher_error;
@@ -121,7 +118,6 @@ class UserSettings extends Component {
             })
         }
     }
-
     onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value || '',
@@ -157,7 +153,6 @@ class UserSettings extends Component {
             country: e.target.value,
         });
     };
-
     onUpdate = () => {
         const {
             updatePublisher

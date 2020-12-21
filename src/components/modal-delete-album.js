@@ -7,9 +7,7 @@ import {
     deleteTrack,
 } from "../redux/actions/users/get-data-site";
 import {toast} from "react-toastify";
-
 class DeleteAlbum extends Component {
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.msg_album_delete && prevProps.msg_album_delete !== this.props.msg_album_delete) {
             toast(this.props.msg_album_delete);
@@ -27,7 +25,6 @@ class DeleteAlbum extends Component {
             }, 2000);
         }
     }
-
     Cancel = () => {
         const {
             handleClose
@@ -35,7 +32,6 @@ class DeleteAlbum extends Component {
 
         handleClose();
     };
-
     onDelete = (albums) => {
         if(this.props.flag === false) {
             const data = {
@@ -59,14 +55,11 @@ class DeleteAlbum extends Component {
             } = this.props;
             deleteTrack(data);
         }
-
     };
-
     render() {
         const showHideClassName = this.props.show ? "modal-b display-modal-block" : "modal-b display-modal-none";
         return (
             <div className={showHideClassName}>
-
                 <section className="modal-article">
                     <div className="create-modal-header txt-20 justify-left col-white">Cancel {this.props.flag? "Track ": "Album "}' Registration</div>
 
@@ -87,7 +80,6 @@ const mapStateToProps = (state) => {
         msg_album_delete: state.users.msg_album_delete,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

@@ -41,13 +41,11 @@ class AddUser extends Component {
        }
         this.onInitial();
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (this.state.userId !== this.props.match.params.id) {
             this.setState({ userId: this.props.match.params.id });
             this.onInitial();
         }
-
         if(this.props.msg_create_publisher && prevProps.msg_create_publisher !== this.props.msg_create_publisher) {
             toast(this.props.msg_create_publisher);
             const {
@@ -60,7 +58,6 @@ class AddUser extends Component {
             }, 2000);
             this.onInitial();
         }
-
         if(this.props.msg_publisher_error && prevProps.msg_publisher_error !== this.props.msg_publisher_error) {
             console.log(this.props.msg_publisher_error);
             let msg = this.props.msg_publisher_error;
@@ -102,7 +99,6 @@ class AddUser extends Component {
                 this.tmr = null;
             }, 6000);
         }
-
         if(this.props.msg_user && this.props.msg_user !== prevProps.msg_user) {
             toast(this.props.msg_user);
             const {
@@ -129,7 +125,6 @@ class AddUser extends Component {
             })
         }
     }
-
     onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value || '',
@@ -165,7 +160,6 @@ class AddUser extends Component {
             country: e.target.value,
         });
     };
-
     onSave = () => {
         const {
             createPublisher
@@ -207,6 +201,27 @@ class AddUser extends Component {
             createPublisher(data);
         }
     };
+    onInput = (code) => {
+        if (code === 13) {
+            if (document.activeElement.id === 'name' && this.state.name !== '') {
+                document.getElementById("phone").focus();
+            } else if (document.activeElement.id === 'phone' && this.state.phone !== '') {
+                document.getElementById("email").focus();
+            } else if (document.activeElement.id === 'email' && this.state.email !== '') {
+                document.getElementById("password").focus();
+            } else if (document.activeElement.id === 'password' && this.state.password !== '') {
+                document.getElementById("confirm_password").focus();
+            } else if (document.activeElement.id === 'confirm_password' && this.state.confirm_password !== '') {
+                document.getElementById("bank_info").focus();
+            } else if (document.activeElement.id === 'bank_info' && this.state.bank_info !== '') {
+                if (this.state.userId) {
+                    this.onUpdate();
+                } else {
+                    this.onSave();
+                }
+            }
+        }
+    };
     render() {
         return (
             <>
@@ -225,6 +240,7 @@ class AddUser extends Component {
                         placeholder="User Name"
                         value={this.state.name}
                         onChange={(e) => this.onChange(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                         required
                     />
                     <input
@@ -234,6 +250,7 @@ class AddUser extends Component {
                         placeholder="Phone Number"
                         value={this.state.phone}
                         onChange={(e) => this.onPhoneChange(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                         required
                     />
                     <input
@@ -243,6 +260,7 @@ class AddUser extends Component {
                         placeholder="Email"
                         value={this.state.email}
                         onChange={(e) => this.onChange(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                         required
                     />
                     <input
@@ -252,6 +270,7 @@ class AddUser extends Component {
                         placeholder="Password"
                         value={this.state.password}
                         onChange={(e) => this.onChange(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                         required
                     />
                     <input
@@ -261,12 +280,14 @@ class AddUser extends Component {
                         placeholder="Confirm Password"
                         value={this.state.confirm_password}
                         onChange={(e) => this.onChange(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                         required
                     />
                     <select
                         className="mt-20"
                         value={this.state.country}
                         onChange={(e) => this.onSelectCountry(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                     >
                         <CountriesList/>
                     </select>
@@ -277,6 +298,7 @@ class AddUser extends Component {
                         placeholder="Bank Information"
                         value={this.state.bank_info}
                         onChange={(e) => this.onChange(e)}
+                        onKeyUp={e => this.onInput(e.keyCode)}
                         required
                     />
                     <div className="flex-space fields">

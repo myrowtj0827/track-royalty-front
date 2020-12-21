@@ -151,6 +151,7 @@
 table {
     width:100%;
     border: 1px solid #ddd;
+    border-collapse: unset;
 }
 
 tr.table-list > th,
@@ -170,7 +171,8 @@ tfoot {
 
 tr.table-list > th:nth-child(1),
 tr.table-list > td:nth-child(1) {
-    padding-left: 15px;
+    padding-left: 10px;
+    min-width: 20px !important;
 }
 
 tr:hover {
@@ -201,7 +203,12 @@ tr > th {
     background-color: #35363a;
     color: #fff;
 }
-
+.txt-word {
+    word-break: break-word;
+}
+.under-line:hover {
+    text-decoration: underline;
+}
 /**
  * Pagination
  */
@@ -341,11 +348,14 @@ input.count {
     min-width: 100px;
 }
 .thumbnail-size {
+    margin-left: 10px;
     padding: 2px;
     width: 50px;
     max-height: 50px;
 }
-
+.thumbnail-size:hover {
+    transform: scale(1.3);
+}
 .icon-flex {
     display: flex;
     height: 60px;
@@ -492,9 +502,18 @@ tr.table-list.album {
 }
 
 input.price-paid {
-    padding-left: 5px;
+    padding-left: 15px;
     border-radius: 3px;
     border: 1px solid var(--col-darkBlue);
-    max-width: 100px;
+    max-width: 100%;
     background-color: #fff;
+}
+textarea.payment-detail {
+    border-radius: 3px;
+    border: 1px solid var(--col-darkBlue);
+    min-height: 100px;
+    max-height: 200px;
+}
+.react-datepicker-wrapper {
+    width: 100%;
 }

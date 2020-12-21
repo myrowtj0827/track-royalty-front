@@ -4,7 +4,6 @@
 
 import axios from "axios";
 import config from "../../../config/index";
-
 import {
     SHOW_SPINNING,
     GET_EXISTING_ALBUM,

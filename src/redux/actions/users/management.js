@@ -1,10 +1,8 @@
 /**
  * The file for track management
  */
-
 import axios from "axios";
 import config from "../../../config/index";
-
 import {
     SHOW_SPINNING,
     GET_TRACK_LIST,
@@ -12,7 +10,6 @@ import {
     TRACK_UPDATE_PAYMENT,
     UPDATE_PAID,
 } from "../types/types";
-
 export const reset = () => dispatch => {
     dispatch({
         type: ERROR_TRACK_LIST,
@@ -51,7 +48,6 @@ export const getTrackListById = (data) => dispatch => {
         });
     })
 };
-
 /**
  * Updating the payment per track
  */

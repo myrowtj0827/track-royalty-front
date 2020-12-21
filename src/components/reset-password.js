@@ -7,7 +7,6 @@ import '../assets/css/login.css';
 import { connect } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 class ResetPassword extends Component {
     constructor(props) {
         super(props);
@@ -128,7 +127,6 @@ const mapStateToProps = (state) => {
         msg_user_error: state.users.msg_user_error,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

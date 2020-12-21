@@ -179,7 +179,6 @@ class UserReports extends Component {
                                     fill="black" fillOpacity="0.65"/>
                             </svg>
                         </div>
-
                         {
                             this.state.page_num && pageArray && pageArray.map((item, key) => {
                                 return (
@@ -193,7 +192,6 @@ class UserReports extends Component {
                                 )
                             })
                         }
-
                         <div className="product-btn justify-center"
                              onClick={() => this.onPageClick(this.state.page_num.total_page)}>
                             <svg width="11" height="15" viewBox="0 0 11 15" fill="none"
@@ -205,7 +203,6 @@ class UserReports extends Component {
                         </div>
                     </div>
                 </div>
-
             </>
         );
     }
@@ -221,7 +218,6 @@ const mapStateToProps = (state) => {
         msg_error_assign_albums: state.users.msg_error_assign_albums,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-
 import {
     resetList,
     getAssignedAlbumsById,
@@ -8,31 +7,27 @@ import {
 } from "../redux/actions/users/get-data-site";
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 class PublisherAlbums extends Component {
     constructor(props) {
         super(props);
-
         this.tmr = null;
         this.state = {
             album_list: '',
             publisher_name: '',
             paid_history: '',
-
             allChecked: false,
             new_checked: [],
-
             current_page: 1,
             page_neighbours: 2,
             pagination: 10,
             page_num: '',
+            show_flag: false,
+            registered_date: '',
         };
     }
-
     componentDidMount() {
         this.onPageClick(1);
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         /**
          * Getting album list
@@ -44,7 +39,6 @@ class PublisherAlbums extends Component {
                 publisher_name: this.props.get_registered_albums.publisher_name,
                 paid_history: (this.props.get_registered_albums.paid_history).reverse(),
             });
-            console.log(this.props.get_registered_albums)
         }
         if (this.props.msg_registered_albums && this.props.msg_registered_albums !== prevProps.msg_registered_albums) {
             toast(this.props.msg_registered_albums);
@@ -57,7 +51,6 @@ class PublisherAlbums extends Component {
                 this.tmr = null;
             }, 3000);
         }
-
         /**
          *  Check all
          */
@@ -91,7 +84,6 @@ class PublisherAlbums extends Component {
                 })
             }
         }
-
         /**
          * Assigning Albums
          */
@@ -119,12 +111,10 @@ class PublisherAlbums extends Component {
             }, 3000);
         }
     }
-
     onPageClick = (item) => {
         this.setState({
             current_page: item,
         });
-
         const {
             getAssignedAlbumsById
         } = this.props;
@@ -135,7 +125,6 @@ class PublisherAlbums extends Component {
             page_neighbours: this.state.page_neighbours,
             pagination: this.state.pagination,
         };
-
         if (getAssignedAlbumsById) {
             getAssignedAlbumsById(data)
         }
@@ -144,7 +133,6 @@ class PublisherAlbums extends Component {
             new_checked: [],
         })
     };
-
     onCheckBox = (e) => {
         const {
             new_checked
@@ -164,7 +152,6 @@ class PublisherAlbums extends Component {
             new_checked: [],
         });
     };
-
     onAssign = () => {
         const {
             unassignAlbumsToUser,
@@ -178,11 +165,21 @@ class PublisherAlbums extends Component {
             unassignAlbumsToUser(data);
         }
     };
-
     onView = (id) => {
         this.props.history.push('/publisher/tracks/'+ this.props.match.params.id + '-' + id);
     };
-
+    onShowMore = (e) => {
+        if(this.state.registered_date === e.registered_date) {
+            this.setState({
+                show_flag: !this.state.show_flag,
+            })
+        } else {
+            this.setState({
+                show_flag: true,
+                registered_date: e.registered_date,
+            });
+        }
+    };
     render() {
         const pageArray = [];
         if(this.state.page_num) {
@@ -260,7 +257,7 @@ class PublisherAlbums extends Component {
                                             >
                                                 {
                                                     this.state.album_list[key].thumbnail && (
-                                                        <img className="thumbnail-size" src={this.state.album_list[key].thumbnail} alt="" />
+                                                        <img loading="lazy" className="thumbnail-size" src={this.state.album_list[key].thumbnail} alt="" />
                                                     )
                                                 }
                                             </td>
@@ -295,7 +292,6 @@ class PublisherAlbums extends Component {
                             </tbody>
                         </table>
                     </div>
-
                     <div className="help-center-align">
                         <div className="product-btn justify-center" onClick={() => this.onPageClick(1)}>
                             <svg width="11" height="15" viewBox="0 0 11 15" fill="none"
@@ -319,7 +315,6 @@ class PublisherAlbums extends Component {
                                 )
                             })
                         }
-
                         <div className="product-btn justify-center"
                              onClick={() => this.onPageClick(this.state.page_num.total_page)}>
                             <svg width="11" height="15" viewBox="0 0 11 15" fill="none"
@@ -331,34 +326,60 @@ class PublisherAlbums extends Component {
                         </div>
                     </div>
                 </div>
-
-
             {/*  Recent Payment History  */}
-
                 <div style={{marginTop: 70}}>
                     <div className="pt-20 pb-20 justify-center col-selected-bg txt-20">
                         Recent Payment History to {this.state.publisher_name && this.state.publisher_name}
                     </div>
                 </div>
                 <div className="form-bg">
-
                     <div className="table-p">
                         <table className="tList">
                             <thead>
                             <tr className="table-list">
                                 <th>No</th>
                                 <th>Paid Amount</th>
+                                <th>Registered Date</th>
                                 <th>Paid Date</th>
+                                <th>Comment</th>
                             </tr>
                             </thead>
                             <tbody>
                             {
                                 this.state.paid_history && this.state.paid_history.map((item, key) => {
+                                    console.log(item);
                                     return (
                                         <tr key={key} className="table-list">
                                             <td>{key + 1}</td>
                                             <td>{item.paid_amount}</td>
+                                            <td>{new Date(item.registered_date).toLocaleString()}</td>
                                             <td>{new Date(item.paid_date).toLocaleString()}</td>
+                                            <td className="txt-word">
+                                                {
+                                                    item.paid_comment.length <= 40?
+                                                        item.paid_comment
+                                                        :
+                                                        <div>
+                                                            {
+                                                                this.state.show_flag && this.state.registered_date === item.registered_date?
+                                                                    item.paid_comment + "   "
+                                                                    :
+                                                                    item.paid_comment.slice(0, 40) + " ... "
+                                                            }
+                                                            <span
+                                                                className="txt-14 col-heavyDark mouse-cursor under-line"
+                                                                onClick={(e) => this.onShowMore(item)}
+                                                            >
+                                                                {
+                                                                    this.state.show_flag && this.state.registered_date === item.registered_date?
+                                                                        "Less"
+                                                                        :
+                                                                        "Show More"
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                }
+                                            </td>
                                         </tr>
                                     )
                                 })
@@ -371,7 +392,6 @@ class PublisherAlbums extends Component {
         );
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         spinning: state.users.spinning,
@@ -382,7 +402,6 @@ const mapStateToProps = (state) => {
         msg_error_assign_albums: state.users.msg_error_assign_albums,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

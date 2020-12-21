@@ -9,7 +9,6 @@ import {
     USER_REGISTRATION,
     SHOW_SPINNING,
 } from "../types/types";
-
 export const reset = () => dispatch => {
     dispatch({
         type: USER_REGISTRATION,
@@ -20,7 +19,6 @@ export const reset = () => dispatch => {
         payload: '',
     });
 };
-
 export const registerUser = (data) => dispatch => {
     console.log(data);
     dispatch({type: SHOW_SPINNING, payload: true});
@@ -67,20 +65,16 @@ export const login = (data) => dispatch => {
             });
         })
 };
-
 export const logOut = () => dispatch => {
     dispatch({
         type: USER_REGISTRATION,
         payload: 'The logout has succeed.',
     });
-    window.location.href = '/login';
-
     localStorage.setItem("id", '');
     localStorage.setItem("name", '');
     localStorage.setItem("email", '');
     localStorage.setItem("role", '');
 };
-
 export const forgotPassword = (data) => dispatch => {
     console.log(data);
     dispatch({type: SHOW_SPINNING, payload: true});
@@ -101,7 +95,6 @@ export const forgotPassword = (data) => dispatch => {
             });
         })
 };
-
 export const resetPassword = (data) => dispatch => {
     console.log(data);
     dispatch({type: SHOW_SPINNING, payload: true});

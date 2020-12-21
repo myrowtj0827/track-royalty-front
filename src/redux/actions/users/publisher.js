@@ -3,7 +3,6 @@
  */
 import axios from "axios";
 import config from "../../../config/index"
-
 import {
     SHOW_SPINNING,
     CREATE_PUBLISHER,
@@ -118,7 +117,6 @@ export const getPublisherById = (data) => dispatch => {
             });
         })
 };
-
 export const getAllUsers = (data) => dispatch => {
     dispatch({type: SHOW_SPINNING, payload: true});
     axios

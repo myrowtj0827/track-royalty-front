@@ -4,7 +4,6 @@ import {
     reset,
     login,
 } from "../redux/actions/users/registration";
-
 import '../assets/css/login.css';
 import { connect } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,7 +18,6 @@ class Login extends React.Component {
             password: '',
         }
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.msg_registration && prevProps.msg_registration !== this.props.msg_registration) {
             toast(this.props.msg_registration);
@@ -32,13 +30,11 @@ class Login extends React.Component {
                 this.tmr = null;
                 window.location.href = '/';
             }, 1000);
-
             this.setState({
                 email: '',
                 password: '',
             })
         }
-
         if(this.props.msg_user_error && prevProps.msg_user_error !== this.props.msg_user_error) {
             console.log(this.props.msg_user_error);
             let msg = this.props.msg_user_error;
@@ -66,7 +62,6 @@ class Login extends React.Component {
             }, 1500);
         }
     }
-
     login = () => {
         const {
             login,
@@ -79,13 +74,20 @@ class Login extends React.Component {
             login(data);
         }
     };
-
     onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value || '',
         })
     };
-
+    onInputAlbumId = (code) => {
+        if (code === 13) {
+            if (document.activeElement.id === 'email') {
+                document.getElementById("password").focus();
+            } else if (document.activeElement.id === 'password') {
+                this.login();
+            }
+        }
+    };
     render() {
         return (
             <>
@@ -105,6 +107,7 @@ class Login extends React.Component {
                             className="mt-20"
                             value={this.state.email}
                             onChange={(e) => this.onChange(e)}
+                            onKeyUp={e => this.onInputAlbumId(e.keyCode)}
                             required
                         />
                         <input
@@ -114,13 +117,12 @@ class Login extends React.Component {
                             className="mt-20"
                             value={this.state.password}
                             onChange={(e) => this.onChange(e)}
+                            onKeyUp={e => this.onInputAlbumId(e.keyCode)}
                             required
                         />
-
                         <div className="btn-common txt-16 col-white justify-center mouse-cursor mt-30" onClick={this.login}>
                             LOGIN
                         </div>
-
                         <Link to="/forgot-password">
                             <div className="txt-14 col-heavyDark align-center pt-30">Forgot password</div>
                         </Link>
@@ -140,7 +142,6 @@ const mapStateToProps = (state) => {
         msg_user_error: state.users.msg_user_error,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

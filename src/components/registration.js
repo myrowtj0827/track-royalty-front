@@ -19,24 +19,18 @@ class Register extends Component {
             accept_state: false,
         };
     }
-
-    componentDidMount() {
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.msg_registration && prevProps.msg_registration !== this.props.msg_registration) {
             toast(this.props.msg_registration);
             const {
                 reset
             } = this.props;
-
             this.tmr = setTimeout(function () {
                 reset();
                 this.tmr = null;
                 window.location.href = '/login';
                 clearTimeout(this.tmr);
             }, 2000);
-
             this.setState({
                 name: '',
                 email: '',
@@ -45,7 +39,6 @@ class Register extends Component {
                 accept_state: false,
             })
         }
-
         if(this.props.msg_user_error && prevProps.msg_user_error !== this.props.msg_user_error) {
             console.log(this.props.msg_user_error);
             let msg = this.props.msg_user_error;
@@ -79,7 +72,6 @@ class Register extends Component {
             }, 6000);
         }
     };
-
     acceptChange = () => {
         this.setState({accept_state: !this.state.accept_state});
     };
@@ -88,7 +80,6 @@ class Register extends Component {
             [e.target.id]: e.target.value || '',
         })
     };
-
     register = () => {
         const {
             registerUser,
@@ -105,7 +96,19 @@ class Register extends Component {
             registerUser(data);
         }
     };
-
+    onInput = (code) => {
+        if (code === 13) {
+            if (document.activeElement.id === 'name' && this.state.name !== '') {
+                document.getElementById("email").focus();
+            } else if (document.activeElement.id === 'email' && this.state.email !== '') {
+                document.getElementById("password").focus();
+            } else if (document.activeElement.id === 'password' && this.state.password !== '') {
+                document.getElementById("confirm_password").focus();
+            } else if (document.activeElement.id === 'confirm_password' && this.state.confirm_password !== '') {
+                this.register();
+            }
+        }
+    };
     render() {
         return (
             <>
@@ -115,13 +118,11 @@ class Register extends Component {
                 <div>
                     <ToastContainer/>
                 </div>
-
                 <div className="admin-login-bg">
                     <div className="register-body">
                         <div className="pb-30 align-center txt-20 txt-bold col-heavyDark">
                             Sign Up
                         </div>
-
                         <input
                             id='name'
                             type="text"
@@ -129,9 +130,9 @@ class Register extends Component {
                             value={this.state.name}
                             onChange={(event) => this.onChange(event)}
                             className="mt-20"
+                            onKeyUp={e => this.onInput(e.keyCode)}
                             required
                         />
-
                         <input
                             id='email'
                             type="email"
@@ -139,9 +140,9 @@ class Register extends Component {
                             value={this.state.email}
                             onChange={(event) => this.onChange(event)}
                             className="mt-20"
+                            onKeyUp={e => this.onInput(e.keyCode)}
                             required
                         />
-
                         <input
                             id='password'
                             type="password"
@@ -149,9 +150,9 @@ class Register extends Component {
                             placeholder="****"
                             value={this.state.password}
                             onChange={(event) => this.onChange(event)}
+                            onKeyUp={e => this.onInput(e.keyCode)}
                             required
                         />
-
                         <input
                             id='confirm_password'
                             type="password"
@@ -159,9 +160,9 @@ class Register extends Component {
                             placeholder="Confirm Password"
                             value={this.state.confirm_password}
                             onChange={(event) => this.onChange(event)}
+                            onKeyUp={e => this.onInput(e.keyCode)}
                             required
                         />
-
                         <div className="pt-20 pb-10">
                             <label className="container-event align-left">
                                 <span className="txt-16 col-darkBlue">
@@ -177,7 +178,6 @@ class Register extends Component {
                                 <span className="checkMark"/>
                             </label>
                         </div>
-
                         <div className="flex-space">
                             <div className="mt-20 btn-common forgot txt-16 col-white justify-center mouse-cursor" onClick={this.props.history.goBack}>
                                 BACK
@@ -200,7 +200,6 @@ const mapStateToProps = (state) => {
         msg_user_error: state.users.msg_user_error,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

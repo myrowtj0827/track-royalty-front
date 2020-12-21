@@ -14,6 +14,8 @@ class UserPayment extends Component {
         this.tmr = null;
         this.state = {
             paid_history: '',
+            show_flag: false,
+            registered_date: '',
         };
     }
     componentDidMount() {
@@ -91,6 +93,18 @@ class UserPayment extends Component {
         // Click download link
         downloadLink.click();
     };
+    onShowMore = (e) => {
+        if(this.state.registered_date === e.registered_date) {
+            this.setState({
+                show_flag: !this.state.show_flag,
+            })
+        } else {
+            this.setState({
+                show_flag: true,
+                registered_date: e.registered_date,
+            });
+        }
+    };
     render() {
         return (
             <>
@@ -127,17 +141,47 @@ class UserPayment extends Component {
                             <tr className="table-list">
                                 <th>No</th>
                                 <th>Paid Amount</th>
+                                <th>Registered Date</th>
                                 <th>Paid Date</th>
+                                <th>Comment</th>
                             </tr>
                             </thead>
                             <tbody>
                             {
                                 this.state.paid_history && this.state.paid_history.map((item, key) => {
+                                    console.log(item);
                                     return (
                                         <tr key={key} className="table-list">
                                             <td>{key + 1}</td>
                                             <td>{item.paid_amount}</td>
+                                            <td>{new Date(item.registered_date).toLocaleString()}</td>
                                             <td>{new Date(item.paid_date).toLocaleString()}</td>
+                                            <td className="txt-word">
+                                                {
+                                                    item.paid_comment.length <= 40?
+                                                        item.paid_comment
+                                                        :
+                                                        <div>
+                                                            {
+                                                                this.state.show_flag && this.state.registered_date === item.registered_date?
+                                                                    item.paid_comment + "   "
+                                                                    :
+                                                                    item.paid_comment.slice(0, 40) + " ... "
+                                                            }
+                                                            <span
+                                                                className="txt-14 col-heavyDark mouse-cursor under-line"
+                                                                onClick={(e) => this.onShowMore(item)}
+                                                            >
+                                                                {
+                                                                    this.state.show_flag && this.state.registered_date === item.registered_date?
+                                                                        "Less"
+                                                                        :
+                                                                        "Show More"
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                }
+                                            </td>
                                         </tr>
                                     )
                                 })
@@ -145,7 +189,6 @@ class UserPayment extends Component {
                             </tbody>
                         </table>
                     </div>
-
                     <div className="flex-space mt-30">
                         <div
                             className="btn-common action assign mouse-cursor col-white"

@@ -9,7 +9,6 @@ import {
     addPaymentInfo,
     updateTrackPayment,
 } from "../redux/actions/users/management";
-
 class PublisherTracks extends Component {
     constructor(props) {
         super(props);
@@ -20,17 +19,14 @@ class PublisherTracks extends Component {
             album_id: '',
             flag_edit: '',
             price: '',
-
             table_show: true,
             detail_show: false,
             detail_item: '',
         };
     }
-
     componentDidMount() {
         this.getInitialTrackList();
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.get_track_list && this.props.get_track_list !== prevProps.get_track_list) {
             this.setState({
@@ -38,7 +34,6 @@ class PublisherTracks extends Component {
             });
             console.log(this.props.get_track_list);
         }
-
         if (this.props.msg_error_tracks && this.props.msg_error_tracks !== prevProps.msg_error_tracks) {
             toast(this.props.msg_error_tracks);
             const {
@@ -50,7 +45,6 @@ class PublisherTracks extends Component {
                 this.tmr = null;
             }, 3000);
         }
-
         if (this.props.msg_track_update && this.props.msg_track_update !== prevProps.msg_track_update) {
             toast(this.props.msg_track_update);
             const {
@@ -64,11 +58,9 @@ class PublisherTracks extends Component {
             this.getInitialTrackList();
         }
     }
-
     getInitialTrackList = () => {
         let path = this.props.match.params.slug;
         let array = path.split("-");
-
         const {
             getTrackListById
         } = this.props;
@@ -84,7 +76,6 @@ class PublisherTracks extends Component {
             })
         }
     };
-
     onChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value || 0,
@@ -109,35 +100,28 @@ class PublisherTracks extends Component {
             };
             updateTrackPayment(data);
         }
-
         this.setState({
             flag_edit: '',
             price: '',
         });
-
-
-        // /**
-        //  *
-        //  *
-        //  *
-        //  * extra
-        //  *
-        //  */
-        // const {
-        //     addPaymentInfo
-        // } = this.props;
-        // if(addPaymentInfo) {
-        //     const data = {
-        //         album_id: this.state.album_id,
-        //         track_name: "Hadlukas Haneiros Rabeinu Shlita",
-        //         played_country: "US",
-        //         played_ip_address: '176.122.2.32',
-        //     };
-        //     addPaymentInfo(data);
-        // }
-
+        /**
+         *
+         * extra
+         *
+         */
+        const {
+            addPaymentInfo
+        } = this.props;
+        if(addPaymentInfo) {
+            const data = {
+                album_id: this.state.album_id,
+                track_name: this.state.flag_edit,
+                played_country: "US",
+                played_ip_address: '176.122.2.32',
+            };
+            addPaymentInfo(data);
+        }
     };
-
     onShowTableContents = () => {
         this.setState({
             table_show: !this.state.table_show,
@@ -174,7 +158,6 @@ class PublisherTracks extends Component {
                             Back
                         </div>
                     </div>
-
                     {
                         this.state.listById && (
                             <div className="flex-grid2 album-grid">
@@ -185,7 +168,6 @@ class PublisherTracks extends Component {
                                         onClick={() => window.location = this.state.listById.album.path}
                                         alt="" />
                                 </div>
-
                                 <div className="album-grid-mt justify-center col-darkBlue">
                                     <div>
                                         <div className="justify-center">
@@ -203,7 +185,7 @@ class PublisherTracks extends Component {
                                             {this.state.listById.album.name}
                                         </div>
                                         <div className="pt-10 justify-center txt-bold txt-20">
-                                            Articles:
+                                            Artists:
                                         </div>
                                         <table className="tList">
                                             <thead>
@@ -308,7 +290,6 @@ class PublisherTracks extends Component {
                                                                 <span className="tooltiptext">Edit the track</span>
                                                             </div>
                                                     }
-
                                                     <div
                                                         className="mr-10 mouse-cursor icon-flex tooltip"
                                                         onClick={(e) => this.onShowDetail(item)}
@@ -328,8 +309,6 @@ class PublisherTracks extends Component {
                             }
                         </table>
                     </div>
-
-
                     {/* Detail Show*/}
                     {
                         this.state.detail_show &&
@@ -339,7 +318,6 @@ class PublisherTracks extends Component {
                                         Detailed view of track "{this.state.detail_item.name}"
                                     </div>
                                 </div>
-
                                 <div className="mt-30 justify-center col-darkBlue txt-bold txt-20">Track History</div>
                                 <div className="table-p">
                                     <table className="tList">
@@ -388,7 +366,6 @@ class PublisherTracks extends Component {
         );
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         spinning: state.users.spinning,
@@ -398,7 +375,6 @@ const mapStateToProps = (state) => {
         msg_track_update: state.users.msg_track_update,
     }
 };
-
 export default connect(
     mapStateToProps,
     {

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 class CountriesList extends Component{
     render(){
         return (
@@ -257,5 +256,4 @@ class CountriesList extends Component{
         );
     };
 }
-
 export default CountriesList;

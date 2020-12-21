@@ -30,7 +30,6 @@ class AssignAlbum extends Component {
             page_num: '',
         };
     }
-
     componentDidMount() {
         const {
             getAllUsers,
@@ -41,7 +40,6 @@ class AssignAlbum extends Component {
         }
         this.onPageClick(1);
     }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
         /**
          * Getting album list
@@ -63,7 +61,6 @@ class AssignAlbum extends Component {
                 this.tmr = null;
             }, 3000);
         }
-
         /**
          * Getting all Users
          */
@@ -83,7 +80,6 @@ class AssignAlbum extends Component {
                 this.tmr = null;
             }, 3000);
         }
-
         /**
          *  Check all
          */
@@ -117,7 +113,6 @@ class AssignAlbum extends Component {
                 })
             }
         }
-
         /**
          * Assigning Albums
          */
@@ -145,23 +140,19 @@ class AssignAlbum extends Component {
             }, 3000);
         }
     }
-
     onPageClick = (item) => {
         this.setState({
             current_page: item,
         });
-
         const {
             getRegisteredAlbumList
         } = this.props;
-
         const data = {
             role_id: localStorage.id,
             current_page: item,
             page_neighbours: this.state.page_neighbours,
             pagination: this.state.pagination,
         };
-
         if (getRegisteredAlbumList) {
             getRegisteredAlbumList(data)
         }
@@ -170,7 +161,6 @@ class AssignAlbum extends Component {
             new_checked: [],
         })
     };
-
     onSelectUser = (e) => {
         if(e.target.value !== "0") {
             this.setState({
@@ -183,7 +173,6 @@ class AssignAlbum extends Component {
             });
         }
     };
-
     onCheckBox = (e) => {
         const {
             new_checked
@@ -203,7 +192,6 @@ class AssignAlbum extends Component {
             new_checked: [],
         });
     };
-
     onAssign = () => {
         const {
             assignAlbumsToUser,
@@ -217,7 +205,6 @@ class AssignAlbum extends Component {
             assignAlbumsToUser(data);
         }
     };
-
     render() {
         const pageArray = [];
         if(this.state.page_num) {
@@ -327,7 +314,6 @@ class AssignAlbum extends Component {
                             </tbody>
                         </table>
                     </div>
-
                     <div className="help-center-align">
                         <div className="product-btn justify-center" onClick={() => this.onPageClick(1)}>
                             <svg width="11" height="15" viewBox="0 0 11 15" fill="none"
@@ -337,7 +323,6 @@ class AssignAlbum extends Component {
                                     fill="black" fillOpacity="0.65"/>
                             </svg>
                         </div>
-
                         {
                             this.state.page_num && pageArray && pageArray.map((item, key) => {
                                 return (
@@ -351,7 +336,6 @@ class AssignAlbum extends Component {
                                 )
                             })
                         }
-
                         <div className="product-btn justify-center"
                              onClick={() => this.onPageClick(this.state.page_num.total_page)}>
                             <svg width="11" height="15" viewBox="0 0 11 15" fill="none"
@@ -363,7 +347,6 @@ class AssignAlbum extends Component {
                         </div>
                     </div>
                 </div>
-
             </>
         );
     }
@@ -374,21 +357,17 @@ const mapStateToProps = (state) => {
         spinning: state.users.spinning,
         getAll_users: state.users.getAll_users,
         msg_get_users: state.users.msg_get_users,
-
         get_registered_albums: state.users.get_registered_albums,
         msg_registered_albums: state.users.msg_registered_albums,
-
         msg_assign_albums: state.users.msg_assign_albums,
         msg_error_assign_albums: state.users.msg_error_assign_albums,
     }
 };
-
 export default connect(
     mapStateToProps,
     {
         reset,
         getAllUsers,
-
         resetList,
         getRegisteredAlbumList,
         assignAlbumsToUser,
