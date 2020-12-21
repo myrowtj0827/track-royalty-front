@@ -381,7 +381,6 @@ export default connect(
         reset,
         getTrackListById,
         updateTrackPayment,
-
         /**
          * Extra
          */

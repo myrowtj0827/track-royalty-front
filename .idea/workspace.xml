@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6dfc4be5-ef3c-4857-af47-20e3a0eb92a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/logout-modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/payment-modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/add-album.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/add-album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/add-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/add-user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/assign-album.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/assign-album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/assign-track.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/body.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/body.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/country-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/country-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/forgot-password.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/forgot-password.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal-delete-album.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-delete-album.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal-delete-user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal-delete-user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/private-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/private-route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/publisher-album-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publisher-album-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/publisher-track-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publisher-track-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/reset-password.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/reset-password.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user-payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user-payment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user-reports.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user-reports.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user-settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user-settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user-track-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user-track-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/users/get-data-site.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/get-data-site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/users/management.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/management.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/users/publisher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/publisher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/users/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/registration.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +146,7 @@
       <workItem from="1608270415832" duration="2665000" />
       <workItem from="1608358593939" duration="50000" />
       <workItem from="1608366840873" duration="64000" />
-      <workItem from="1608534398480" duration="17791000" />
+      <workItem from="1608534398480" duration="21113000" />
     </task>
     <servers />
   </component>
