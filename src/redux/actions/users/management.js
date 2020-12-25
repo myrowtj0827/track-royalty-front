@@ -10,6 +10,14 @@ import {
     TRACK_UPDATE_PAYMENT,
     UPDATE_PAID,
 } from "../types/types";
+
+const instance = axios.create({
+    baseURL: config.SIM_API_URL,
+    timeout: 3000,
+    headers: {'Authorization': localStorage.getItem('token')}
+});
+
+
 export const reset = () => dispatch => {
     dispatch({
         type: ERROR_TRACK_LIST,
@@ -95,9 +103,10 @@ export const updatePaid = (data) => dispatch => {
  */
 export const addPaymentInfo = (data) => dispatch => {
     dispatch({type: SHOW_SPINNING, payload: true});
-    axios
-        .post(config.SIM_API_URL + "/api/managements/add-played-track", data)
+    instance
+        .post("/api/records/add-played-track", data)
         .then(res => {
+            console.log(res.data.msg);
             dispatch({type: SHOW_SPINNING, payload: false});
             dispatch({
                 type: TRACK_UPDATE_PAYMENT,

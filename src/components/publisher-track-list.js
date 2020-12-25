@@ -109,18 +109,19 @@ class PublisherTracks extends Component {
          * extra
          *
          */
-        const {
-            addPaymentInfo
-        } = this.props;
-        if(addPaymentInfo) {
-            const data = {
-                album_id: this.state.album_id,
-                track_name: this.state.flag_edit,
-                played_country: "US",
-                played_ip_address: '176.122.2.32',
-            };
-            addPaymentInfo(data);
-        }
+        // const {
+        //     addPaymentInfo
+        // } = this.props;
+        // if(addPaymentInfo) {
+        //     const data = {
+        //         album_id: this.state.album_id,
+        //         track_url: this.state.flag_edit,
+        //         platform: '',
+        //         version: '',
+        //     };
+        //     addPaymentInfo(data);
+        //     console.log(data);
+        // }
     };
     onShowTableContents = () => {
         this.setState({
@@ -328,6 +329,8 @@ class PublisherTracks extends Component {
                                             <th>No</th>
                                             <th>Country</th>
                                             <th>Ip Address</th>
+                                            <th>Platform</th>
+                                            <th>Version</th>
                                             <th>Price Per Played Track</th>
                                             <th>Played Date</th>
                                         </tr>
@@ -340,6 +343,8 @@ class PublisherTracks extends Component {
                                                         <td style={{paddingLeft: 20}}>{key + 1}</td>
                                                         <td>{item.country}</td>
                                                         <td>{item.ip_address}</td>
+                                                        <td>{item.platform? item.platform: ''}</td>
+                                                        <td>{item.version? item.version: ''}</td>
                                                         <td>{item.price_per_track}</td>
                                                         <td>
                                                             {

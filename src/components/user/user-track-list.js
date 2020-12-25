@@ -254,6 +254,8 @@ class UserTrackList extends React.Component {
                                         <th>No</th>
                                         <th>Country</th>
                                         <th>Ip Address</th>
+                                        <th>Platform</th>
+                                        <th>Version</th>
                                         <th>Price Per Played Track</th>
                                         <th>Played Date</th>
                                     </tr>
@@ -266,6 +268,8 @@ class UserTrackList extends React.Component {
                                                     <td style={{paddingLeft: 20}}>{key + 1}</td>
                                                     <td>{item.country}</td>
                                                     <td>{item.ip_address}</td>
+                                                    <td>{item.platform? item.platform: ''}</td>
+                                                    <td>{item.version? item.version: ''}</td>
                                                     <td>{item.price_per_track}</td>
                                                     <td>
                                                         {

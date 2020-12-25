@@ -56,6 +56,7 @@ export const login = (data) => dispatch => {
             localStorage.setItem("name", temp.name);
             localStorage.setItem("email", temp.email);
             localStorage.setItem("role", temp.role);
+            localStorage.setItem("token", res.data.token);
         })
         .catch(err => {
             dispatch({type: SHOW_SPINNING, payload: false});
@@ -74,6 +75,7 @@ export const logOut = () => dispatch => {
     localStorage.setItem("name", '');
     localStorage.setItem("email", '');
     localStorage.setItem("role", '');
+    localStorage.setItem("token", '');
 };
 export const forgotPassword = (data) => dispatch => {
     console.log(data);
