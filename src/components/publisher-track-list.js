@@ -105,17 +105,15 @@ class PublisherTracks extends Component {
             price: '',
         });
         /**
-         *
          * extra
-         *
          */
         // const {
         //     addPaymentInfo
         // } = this.props;
         // if(addPaymentInfo) {
         //     const data = {
-        //         album_id: this.state.album_id,
-        //         track_url: this.state.flag_edit,
+        //         album_id: 79362,//this.state.album_id,
+        //         track_url: "/a-z/l/lelov/nigunei-lelov-lchanuka/1---rabeinu-zechrono-levrucho.mp3",//this.state.flag_edit,
         //         platform: '',
         //         version: '',
         //     };

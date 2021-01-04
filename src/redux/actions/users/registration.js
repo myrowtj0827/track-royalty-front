@@ -9,6 +9,7 @@ import {
     USER_REGISTRATION,
     SHOW_SPINNING,
 } from "../types/types";
+
 export const reset = () => dispatch => {
     dispatch({
         type: USER_REGISTRATION,

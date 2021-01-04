@@ -4,7 +4,6 @@
     <list default="true" id="6dfc4be5-ef3c-4857-af47-20e3a0eb92a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/publisher-track-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publisher-track-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/user/user-track-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/user/user-track-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/users/management.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/management.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/actions/users/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/registration.js" afterDir="false" />
@@ -153,6 +152,10 @@
       <workItem from="1608534398480" duration="23862000" />
       <workItem from="1608573167603" duration="1046000" />
       <workItem from="1608816375900" duration="11169000" />
+      <workItem from="1609007718303" duration="5933000" />
+      <workItem from="1609088257096" duration="236000" />
+      <workItem from="1609168265260" duration="613000" />
+      <workItem from="1609669433683" duration="8089000" />
     </task>
     <servers />
   </component>
