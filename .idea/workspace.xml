@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6dfc4be5-ef3c-4857-af47-20e3a0eb92a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/publisher-track-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/publisher-track-list.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/users/management.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/management.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/users/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/users/registration.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +152,9 @@
       <workItem from="1609007718303" duration="5933000" />
       <workItem from="1609088257096" duration="236000" />
       <workItem from="1609168265260" duration="613000" />
-      <workItem from="1609669433683" duration="8089000" />
+      <workItem from="1609669433683" duration="12433000" />
+      <workItem from="1609987550511" duration="2128000" />
+      <workItem from="1610028707921" duration="607000" />
     </task>
     <servers />
   </component>
