@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 import {
     reset,
     login,
@@ -123,12 +122,12 @@ class Login extends React.Component {
                         <div className="btn-common txt-16 col-white justify-center mouse-cursor mt-30" onClick={this.login}>
                             LOGIN
                         </div>
-                        <Link to="/forgot-password">
+                        {/* <Link to="/forgot-password">
                             <div className="txt-14 col-heavyDark align-center pt-30">Forgot password</div>
-                        </Link>
-                        <Link to="/register">
+                        </Link> */}
+                        {/* <Link to="/register">
                             <div className="txt-14 col-heavyDark align-center pt-10">Don't you have an account yet?</div>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </>

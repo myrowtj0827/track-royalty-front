@@ -20,26 +20,26 @@ export const reset = () => dispatch => {
         payload: '',
     });
 };
-export const registerUser = (data) => dispatch => {
-    console.log(data);
-    dispatch({type: SHOW_SPINNING, payload: true});
-    axios
-        .post(config.SIM_API_URL + "/api/users/register-user", data)
-        .then(res => {
-            dispatch({type: SHOW_SPINNING, payload: false});
-            dispatch({
-                type: USER_REGISTRATION,
-                payload: res.data.msg,
-            });
-        })
-        .catch(err => {
-            dispatch({type: SHOW_SPINNING, payload: false});
-            dispatch({
-                type: USER_ERROR,
-                payload: err.response ? err.response.data.msg : {error: "error"},
-            });
-        })
-};
+// export const registerUser = (data) => dispatch => {
+//     console.log(data);
+//     dispatch({type: SHOW_SPINNING, payload: true});
+//     axios
+//         .post(config.SIM_API_URL + "/api/users/register-user", data)
+//         .then(res => {
+//             dispatch({type: SHOW_SPINNING, payload: false});
+//             dispatch({
+//                 type: USER_REGISTRATION,
+//                 payload: res.data.msg,
+//             });
+//         })
+//         .catch(err => {
+//             dispatch({type: SHOW_SPINNING, payload: false});
+//             dispatch({
+//                 type: USER_ERROR,
+//                 payload: err.response ? err.response.data.msg : {error: "error"},
+//             });
+//         })
+// };
 
 export const login = (data) => dispatch => {
     console.log(data);
@@ -78,43 +78,43 @@ export const logOut = () => dispatch => {
     localStorage.setItem("role", '');
     localStorage.setItem("token", '');
 };
-export const forgotPassword = (data) => dispatch => {
-    console.log(data);
-    dispatch({type: SHOW_SPINNING, payload: true});
-    axios
-        .post(config.SIM_API_URL + "/api/users/forgot-password", data)
-        .then(res => {
-            dispatch({type: SHOW_SPINNING, payload: false});
-            dispatch({
-                type: USER_REGISTRATION,
-                payload: res.data.results,
-            });
-        })
-        .catch(err => {
-            dispatch({type: SHOW_SPINNING, payload: false});
-            dispatch({
-                type: USER_ERROR,
-                payload: err.response ? err.response.data.msg : {error: "error"},
-            });
-        })
-};
-export const resetPassword = (data) => dispatch => {
-    console.log(data);
-    dispatch({type: SHOW_SPINNING, payload: true});
-    axios
-        .post(config.SIM_API_URL + "/api/users/reset-password", data)
-        .then(res => {
-            dispatch({type: SHOW_SPINNING, payload: false});
-            dispatch({
-                type: USER_REGISTRATION,
-                payload: res.data.msg,
-            });
-        })
-        .catch(err => {
-            dispatch({type: SHOW_SPINNING, payload: false});
-            dispatch({
-                type: USER_ERROR,
-                payload: err.response ? err.response.data.msg : {error: "error"},
-            });
-        })
-};
+// export const forgotPassword = (data) => dispatch => {
+//     console.log(data);
+//     dispatch({type: SHOW_SPINNING, payload: true});
+//     axios
+//         .post(config.SIM_API_URL + "/api/users/forgot-password", data)
+//         .then(res => {
+//             dispatch({type: SHOW_SPINNING, payload: false});
+//             dispatch({
+//                 type: USER_REGISTRATION,
+//                 payload: res.data.results,
+//             });
+//         })
+//         .catch(err => {
+//             dispatch({type: SHOW_SPINNING, payload: false});
+//             dispatch({
+//                 type: USER_ERROR,
+//                 payload: err.response ? err.response.data.msg : {error: "error"},
+//             });
+//         })
+// };
+// export const resetPassword = (data) => dispatch => {
+//     console.log(data);
+//     dispatch({type: SHOW_SPINNING, payload: true});
+//     axios
+//         .post(config.SIM_API_URL + "/api/users/reset-password", data)
+//         .then(res => {
+//             dispatch({type: SHOW_SPINNING, payload: false});
+//             dispatch({
+//                 type: USER_REGISTRATION,
+//                 payload: res.data.msg,
+//             });
+//         })
+//         .catch(err => {
+//             dispatch({type: SHOW_SPINNING, payload: false});
+//             dispatch({
+//                 type: USER_ERROR,
+//                 payload: err.response ? err.response.data.msg : {error: "error"},
+//             });
+//         })
+// };
